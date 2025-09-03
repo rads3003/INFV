@@ -1,4 +1,4 @@
->
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -53,7 +53,7 @@
       <p><strong>Responsable:</strong> <span id="informeResponsable"></span></p>
     </div>
 
-    <div id="contenidoInforme"></div>
+    <div class="contenido-sangrado" id="contenidoInforme"></div>
 
     <button onclick="descargarPDF()">Descargar Informe en PDF</button>
   </div>
@@ -110,6 +110,10 @@ box-shadow: 0 0 6px rgba(0,0,0,0.2);
 p, td, th, textarea {
 text-align: justify;
 }
+.contenido-sangrado {
+padding-left: 40px;
+padding-right: 40px;
+}
 button {
 padding: 10px 20px;
 background-color: #001f3f;
@@ -153,11 +157,13 @@ margin-top: 20px;
     document.getElementById("informeFecha").innerText = fecha;
 
     let html = `
-      <h3>Entorno</h3><p>${entorno}</p>${imagenHTML('previewEntorno')}
-      <h3>Activos Vulnerables</h3><p>${activos}</p>${imagenHTML('previewActivos')}
-      <h3>Hallazgos</h3><p>${hallazgos}</p>${imagenHTML('previewHallazgo')}
-      <h3>Riesgos</h3><p>${riesgos}</p>
-      <h3>Recomendaciones</h3><p>${recomendaciones}</p>
+      <div class="contenido-sangrado">
+        <h3>Entorno</h3><p>${entorno}</p>${imagenHTML('previewEntorno')}
+        <h3>Activos Vulnerables</h3><p>${activos}</p>${imagenHTML('previewActivos')}
+        <h3>Hallazgos</h3><p>${hallazgos}</p>${imagenHTML('previewHallazgo')}
+        <h3>Riesgos</h3><p>${riesgos}</p>
+        <h3>Recomendaciones</h3><p>${recomendaciones}</p>
+      </div>
     `;
 
     document.getElementById("contenidoInforme").innerHTML = html;
